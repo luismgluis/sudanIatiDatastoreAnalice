@@ -7,23 +7,35 @@ El proyecto esta desplegado en Cloud Functions con nodejs
 Se ha habilitado el endpoint en ... https://...
 
 para el cual se puede usar los siguientes parametros de consulta
+con x-www-form-urlencoded por POST por ejemplo con PostMan
+https://www.postman.com/
+
+usa type en 'year' lo cual especifica que la accion que quieres hacer es analizar los datos por año
 
 ```
-type:year
+type:string "year"
 ```
 
-```
-save:true
-```
+usa "save" en 'true' si quieres obtener los datos guardados en la base de datos y usalo en 'false' si quieres obtenerlos de la api de iatidatastore
 
 ```
-year:2020
+save:boolean true
 ```
 
-```
-showBudgets:true
-```
+usa "year" para especificar el año del cual quieres la informacion
 
 ```
-update:true
+year:number 2020
+```
+
+usa "showBudgets" si quieres mostrar todos los datos individuales en la respuesta
+
+```
+showBudgets:boolean true
+```
+
+usa "update" en true si quieres actualizar la basede datos con los nuevos datos obtenidos desde el Api de iatidatastore
+
+```
+update:booleantrue
 ```
