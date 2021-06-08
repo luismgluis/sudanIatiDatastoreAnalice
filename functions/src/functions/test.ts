@@ -1,5 +1,5 @@
 import * as functions from "firebase-functions";
-import App from "../components/App";
+import App from "../components/app";
 
 export default function test(app: App) {
   return functions
@@ -7,6 +7,14 @@ export default function test(app: App) {
     .https.onRequest(async (request, response) => {
       response.set({ "Access-Control-Allow-Origin": "*" });
 
-      response.send("hello");
+      app
+        .firestore()
+        .updateTemp("ss", "gg")
+        .then((s) => {
+          response.send("hello");
+        })
+        .catch((err) => {
+          response.send("err");
+        });
     });
 }

@@ -1,4 +1,4 @@
-import App from "./components/App";
+import App from "./components/app";
 
 import test from "./functions/test";
 const app = new App();

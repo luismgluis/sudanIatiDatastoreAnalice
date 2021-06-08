@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-import FirestoreApi from "../api/FirestoreApi";
+import FirestoreApi from "../api/firestoreApi";
 import serviceAccount from "../ingrexx_json_account.json";
 
 export type AppType = {
