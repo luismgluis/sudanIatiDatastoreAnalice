@@ -1,5 +1,6 @@
 import * as admin from "firebase-admin";
 import FirestoreApi from "../api/firestoreApi";
+import IatiDatatore from "../api/iatiDatatore";
 import serviceAccount from "../ingrexx_json_account.json";
 
 export type AppType = {
@@ -13,6 +14,7 @@ class App implements AppType {
   started: boolean;
   fireApp: admin.app.App;
   private firestoredb: FirestoreApi;
+  private iatiDatastore: IatiDatatore;
   constructor() {
     this.started = false;
   }
@@ -27,6 +29,7 @@ class App implements AppType {
       );
       if (typeof this.fireApp.firestore !== "undefined") {
         this.firestoredb = new FirestoreApi(this);
+        this.iatiDatastore = new IatiDatatore(this);
         this.started = true;
       } else {
         console.log(TAG, "fireapp firestore NOOOT exits");
@@ -40,6 +43,12 @@ class App implements AppType {
       this.start();
     }
     return this.firestoredb;
+  }
+  itatiDatastore() {
+    if (!this.started) {
+      this.start();
+    }
+    return this.iatiDatastore;
   }
 }
 
