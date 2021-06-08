@@ -1,0 +1,36 @@
+{
+  "name": "functions",
+  "scripts": {
+    "buildWatch": "tsc -w",
+    "build:watch": "tsc -w",
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "deployBot": "firebase deploy --only functions:helloBot",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@types/firebase": "^3.2.1",
+    "cors": "^2.8.5",
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.14.1",
+    "node-fetch": "^2.6.1",
+    "ssl-root-cas": "^1.3.1",
+    "telegraf": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/node-fetch": "^2.5.10",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^3.9.9"
+  },
+  "private": true
+}

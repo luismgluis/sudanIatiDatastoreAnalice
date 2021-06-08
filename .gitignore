@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+functions/.vscode
+functions/lib
+functions/node_modules
+functions/lib/ingrexx_json_account.json
